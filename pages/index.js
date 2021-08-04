@@ -55,7 +55,6 @@ export default function Home() {
             p={"2"}
             backgroundColor="white"
             outlineColor="white"
-            outlineColor="none"
           >
             <SearchIcon color={"lightgrey"} />
           </InputLeftAddon>
