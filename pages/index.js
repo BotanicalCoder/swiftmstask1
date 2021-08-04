@@ -55,8 +55,11 @@ export default function Home() {
             p={"2"}
             backgroundColor="white"
             outlineColor="white"
-            children={<SearchIcon color={"lightgrey"} />}
-          />
+            outlineColor="none"
+          >
+            <SearchIcon color={"lightgrey"} />
+          </InputLeftAddon>
+
           <Input
             border={"none"}
             color="black"
@@ -129,10 +132,9 @@ export default function Home() {
                 borderRadius={"4"}
                 color="white"
               >
-                <InputLeftAddon
-                  outlineColor="none"
-                  children={<SearchIcon color={"lightgrey"} />}
-                />
+                <InputLeftAddon outlineColor="none">
+                  <SearchIcon color={"lightgrey"} />
+                </InputLeftAddon>
                 <Input
                   backgroundColor="#edf2f7"
                   border={"none"}
