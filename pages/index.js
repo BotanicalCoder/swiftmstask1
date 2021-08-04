@@ -116,8 +116,8 @@ export default function Home() {
                     <Text fontSize="md">Gbenga</Text>
                   </Stack>
                 </MenuButton>
-                <MenuList p="0" m="0" color="black" >
-                  <MenuItem >
+                <MenuList p="0" m="0" color="black">
+                  <MenuItem>
                     <Avatar name="Gbenga Oyeniyi" size="md" />
                     <Box display="flex" direction="row" flexWrap="wrap">
                       <Text fontSize="md" flex="100%">
@@ -313,7 +313,7 @@ export default function Home() {
                 rightIcon={<ChevronDownIcon />}
                 backgroundColor="white"
                 _hover={{ backgroundColor: "gray.300" }}
-                _focus={{ boxShadow: "none", outline: "none" }}
+                _focus={{ outline: "none" }}
               >
                 {value}
               </MenuButton>
