@@ -165,7 +165,6 @@ export default function Home() {
           pt="20"
         >
           <Stack
-            flex="100%"
             bg="white"
             direction="row"
             pl="5"
