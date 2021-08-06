@@ -115,7 +115,7 @@ export default function Home() {
                 p="3"
                 size="sm"
                 maxW="12rem"
-                _hover={{backgroundColor:"blue.700"}}
+                _hover={{ backgroundColor: "blue.700" }}
               >
                 Register Patient
               </Button>
@@ -129,7 +129,13 @@ export default function Home() {
             mt="4"
             flexWrap="wrap"
           >
-            <Box flex="70%" backgroundColor="white">
+            <Box
+              flex="70%"
+              backgroundColor="white"
+              borderWidth="1px"
+              borderColor="gray.300"
+              borderRadius="5px"
+            >
               <Table variant="unstyled" size="sm">
                 <TableCaption placement="top" align="center">
                   <Box display="flex" justifyContent="space-between">
@@ -137,8 +143,11 @@ export default function Home() {
                       Upcoming Appointments
                     </Heading>
 
-                    <Button backgroundColor="blue.500" color="white" px="4"
-                    _hover={{backgroundColor:"blue.700"}}
+                    <Button
+                      backgroundColor="blue.500"
+                      color="white"
+                      px="4"
+                      _hover={{ backgroundColor: "blue.700" }}
                     >
                       View All
                     </Button>
