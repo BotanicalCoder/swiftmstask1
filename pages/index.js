@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-
 import {
   Flex,
-  Spacer,
   Box,
   Heading,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Stack,
   Avatar,
   AvatarGroup,
@@ -25,142 +18,24 @@ import {
   Td,
   TableCaption,
   Text,
-  Image,
+  calc,
 } from "@chakra-ui/react";
 
-import {
-  TriangleDownIcon,
-  SearchIcon,
-  ChevronDownIcon,
-} from "@chakra-ui/icons";
+import { SearchIcon } from "@chakra-ui/icons";
+
+import NavBar from "../components/Navbar";
+import Queue from "../components/Queue";
 
 export default function Home() {
-  const [value, setValue] = useState("Consultation Queue");
   return (
-    <>
-      <Flex
-        backgroundColor="rgb(17, 100, 157)"
-        color="white"
-        padding="2"
-        position="fixed"
-        top="0"
-        left="0"
-        minWidth="100%"
-      >
-        <Stack
-          p="2"
-          direction="row"
-          display="flex"
-          flex="2%"
-          justifyContent="flex-start"
-        >
-          <Image
-            float="left"
-            src="https://www.test-emr.medispark.health/images/emr-icon-white.png"
-            alt="Swift MediSpark"
-            pr="9"
-          />
+    <Box>
+      <NavBar />
 
-          <Button colorScheme="white" variant="link" size="sm">
-            Clients
-          </Button>
-          <Button colorScheme="white" variant="link" size="sm">
-            Schedules
-          </Button>
-        </Stack>
-
-        <Spacer />
-
-        <InputGroup flex="10%" backgroundColor={"white"} borderRadius={"4"}>
-          <InputLeftAddon
-            m="0"
-            px="3"
-            backgroundColor="white"
-            outlineColor="white"
-          >
-            <SearchIcon color="lightgrey" />
-          </InputLeftAddon>
-
-          <Input
-            border="none"
-            color="black"
-            pl="0"
-            _focus={{ boxShadow: "none" }}
-            type="text"
-            placeholder="Find a patient ....."
-          />
-        </InputGroup>
-
-        <Box
-          display="flex"
-          flex="5%"
-          justifyItems="space-around"
-          justifyContent="space-around"
-        >
-          <Menu display="flex">
-            {({ isOpen }) => (
-              <>
-                <MenuButton
-                  backgroundColor={"rgba(0,0,0,0)"}
-                  color={"white"}
-                  _hover={{ bg: "rgba(0,0,0,0)" }}
-                  _focus={{ boxShadow: "none" }}
-                  _expanded={{ bg: "rgba(0,0,0,0)" }}
-                  isActive={isOpen}
-                  as={Button}
-                  rightIcon={<TriangleDownIcon boxSize="4" pt="1" />}
-                >
-                  <Stack align="center" direction="row">
-                    &nbsp;
-                    <Avatar name="Gbenga Oyeniyi" size="sm" />
-                    <Text fontSize="md">Gbenga</Text>
-                  </Stack>
-                </MenuButton>
-                <MenuList p="0" m="0" color="black">
-                  <MenuItem>
-                    <Avatar name="Gbenga Oyeniyi" size="md" />
-                    <Box display="flex" direction="row" flexWrap="wrap">
-                      <Text fontSize="md" flex="100%">
-                        Gbenga O.
-                      </Text>
-                      <Button color="blue.300" variant="link" size="sm">
-                        Account Setting
-                      </Button>
-                    </Box>
-                  </MenuItem>
-
-                  <MenuItem>
-                    <Text color="red.600">Sign-out </Text>
-                  </MenuItem>
-                </MenuList>
-              </>
-            )}
-          </Menu>
-
-          <Button
-            color="teal.900"
-            fontSize="sm"
-            backgroundColor="white"
-            _hover={{ backgroundColor: "white" }}
-            leftIcon={
-              <Image
-                src="https://res.cloudinary.com/medispark/image/upload/v1625652371/1625652370_organization_logo.jpg"
-                alt="Hospital logo"
-                boxSize="10"
-              />
-            }
-          >
-            ABC-CLINIC
-          </Button>
-        </Box>
-      </Flex>
-
-      <Flex display="flex" bg="rgb(247, 248, 248)" h="100vh" flexWrap="nowrap">
+      <Flex bg="rgb(247, 248, 248)" className="alpha" height="100vh">
         <Flex
           direction="row"
           flexWrap="wrap"
           justifyContent="flex-start"
-          alignContent="baseline"
           p="10"
           pt="20"
         >
@@ -168,15 +43,15 @@ export default function Home() {
             bg="white"
             direction="row"
             pl="5"
-            pr="20"
+            pr="10"
             py="6"
             borderWidth="1px"
             borderColor="gray.300"
             borderRadius="5px"
-            flex="10"
+            flex="20%"
           >
             <Stack m="0" px="8" pt="4" direction="column">
-              <Heading color="blue.400" size="lg">
+              <Heading color="blue.500" size="lg">
                 Welcome Gbenga,
               </Heading>
               <p>To begin you can search for, or register a patient </p>
@@ -187,7 +62,7 @@ export default function Home() {
                 borderRadius="4"
                 color="white"
               >
-                <InputLeftAddon outlineColor="none">
+                <InputLeftAddon outlineColor="none" p="3">
                   <SearchIcon color="lightgrey" />
                 </InputLeftAddon>
                 <Input
@@ -197,6 +72,7 @@ export default function Home() {
                   _focus={{ boxShadow: "none" }}
                   type="text"
                   placeholder="Search Patient"
+                  p="0"
                 />
               </InputGroup>
             </Stack>
@@ -224,13 +100,23 @@ export default function Home() {
                 </AvatarGroup>
 
                 <Box display="flex">
-                  <Text fontWeight="light">19 </Text> &nbsp;
-                  <Text fontWeight="semibold" color="blue.500">
+                  <Text fontWeight="light" fontSize="sm">
+                    19
+                  </Text>
+                  &nbsp;
+                  <Text fontWeight="bold" color="blue.500" fontSize="sm">
                     Patients Registered
                   </Text>
                 </Box>
               </Stack>
-              <Button backgroundColor="blue.500" color="white" p="3" size="sm">
+              <Button
+                backgroundColor="blue.500"
+                color="white"
+                p="3"
+                size="sm"
+                maxW="12rem"
+                _hover={{backgroundColor:"blue.700"}}
+              >
                 Register Patient
               </Button>
             </Stack>
@@ -239,11 +125,11 @@ export default function Home() {
           <Flex
             flex="100%"
             display="flex"
-            justifyContent="space-around"
+            justifyContent="space-between"
             mt="4"
             flexWrap="wrap"
           >
-            <Box flex="50%" backgroundColor="white">
+            <Box flex="70%" backgroundColor="white">
               <Table variant="unstyled" size="sm">
                 <TableCaption placement="top" align="center">
                   <Box display="flex" justifyContent="space-between">
@@ -251,7 +137,9 @@ export default function Home() {
                       Upcoming Appointments
                     </Heading>
 
-                    <Button backgroundColor="blue.500" color="white" px="4">
+                    <Button backgroundColor="blue.500" color="white" px="4"
+                    _hover={{backgroundColor:"blue.700"}}
+                    >
                       View All
                     </Button>
                   </Box>
@@ -286,85 +174,22 @@ export default function Home() {
               bgSize="cover"
               p="4"
               mx="3"
-              flex="10%"
+              flex="20%"
               borderRadius="5"
             >
               <Heading align="left" color="white" fontSize="30" pb="20">
                 Manage the order in which patients see the doctor.
               </Heading>
 
-              <Button alignSelf="baseline"> Manage Queue</Button>
+              <Button my="0" mx="auto" d="block">
+                Manage Queue
+              </Button>
             </Box>
           </Flex>
         </Flex>
 
-        <Flex
-          h="100vh"
-          bg="white"
-          flex="60%"
-          borderLeftWidth="1px"
-          borderLeftColor="gray.200"
-          p="2"
-        >
-          <Box pt="20">
-            <Menu>
-              <MenuButton
-                as={Button}
-                rightIcon={<ChevronDownIcon />}
-                backgroundColor="white"
-                _hover={{ backgroundColor: "gray.300" }}
-                _focus={{ outline: "none" }}
-              >
-                {value}
-              </MenuButton>
-              <MenuList>
-                <MenuItem
-                  onClick={() => {
-                    setValue("Consultation Queue");
-                  }}
-                >
-                  Consultation Queue
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    setValue("Bills Queue");
-                  }}
-                >
-                  Bills Queue
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    setValue("Procedure Queue");
-                  }}
-                >
-                  Procedure Queue
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    setValue("Dispensary Queue");
-                  }}
-                >
-                  Dispensary Queue
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    setValue("Laboratory Queue");
-                  }}
-                >
-                  Laboratory Queue
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    setValue("Imaging Queue");
-                  }}
-                >
-                  Imaging Queue
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          </Box>
-        </Flex>
+        <Queue />
       </Flex>
-    </>
+    </Box>
   );
 }
