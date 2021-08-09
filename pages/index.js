@@ -31,12 +31,12 @@ export default function Home() {
     <Box>
       <NavBar />
 
-      <Flex bg="rgb(247, 248, 248)" className="alpha" height="100vh">
+      <Flex bg="rgb(247, 248, 248)" height="100vh" display="flex">
         <Flex
           direction="row"
           flexWrap="wrap"
           justifyContent="flex-start"
-          p="10"
+          p="14"
           pt="20"
         >
           <Stack
@@ -50,13 +50,13 @@ export default function Home() {
             borderRadius="5px"
             flex="20%"
           >
-            <Stack m="0" px="8" pt="4" direction="column">
+            <Stack m="0" px="6" pt="4" direction="column">
               <Heading color="blue.500" size="lg">
                 Welcome Gbenga,
               </Heading>
               <p>To begin you can search for, or register a patient </p>
               <InputGroup
-                minWidth="30vw"
+                width="30vw"
                 mr="4"
                 backgroundColor="#edf2f7"
                 borderRadius="4"
@@ -83,7 +83,7 @@ export default function Home() {
               borderLeftColor="gray.500"
             />
 
-            <Stack p="4">
+            <Stack p="2">
               <Heading size="sm"> Register Patient</Heading>
 
               <Stack direction="row" align="center">

@@ -8,6 +8,7 @@ import {
   MenuList,
   MenuItem,
   Stack,
+  HStack,
   Avatar,
   InputGroup,
   InputLeftAddon,
@@ -15,7 +16,10 @@ import {
   Text,
   Image,
   Divider,
+  Icon,
 } from "@chakra-ui/react";
+
+import { BiLogOut } from "react-icons/bi";
 
 import { TriangleDownIcon, SearchIcon } from "@chakra-ui/icons";
 
@@ -31,32 +35,32 @@ const NavBar = () => {
       minWidth="100%"
       zIndex="10"
     >
-      <Stack
-        p="0"
-        direction="row"
-        display="flex"
-        flex="0.5%"
-        justifyContent="space-between"
-      >
+      <HStack p="0" spacing="1.5rem">
         <Image
           float="left"
           src="https://www.test-emr.medispark.health/images/emr-icon-white.png"
           alt="Swift MediSpark"
         />
 
-        <Button colorScheme="white" variant="link" size="sm" >
+        <Button colorScheme="white" variant="link" size="sm">
           Clients
         </Button>
-        <Button colorScheme="white" variant="link" size="sm" >
+        <Button colorScheme="white" variant="link" size="sm">
           Schedules
         </Button>
-      </Stack>
+      </HStack>
 
       <Spacer />
 
-      <InputGroup flex="10%" backgroundColor={"white"} borderRadius={"4"} p="0.005">
+      <InputGroup
+        flex="10%"
+        backgroundColor={"white"}
+        borderRadius={"4"}
+        p="0.005"
+      >
         <InputLeftAddon
           m="0"
+          py="0"
           px="3"
           backgroundColor="white"
           outlineColor="white"
@@ -67,6 +71,7 @@ const NavBar = () => {
         <Input
           border="none"
           color="black"
+          py="0"
           pl="0"
           fontSize="sm"
           _focus={{ boxShadow: "none" }}
@@ -97,10 +102,12 @@ const NavBar = () => {
                 <Stack align="center" direction="row">
                   &nbsp;
                   <Avatar name="Gbenga Oyeniyi" size="sm" />
-                  <Text fontSize="md">Gbenga</Text>
+                  <Text fontSize="sm" fontWeight="bold">
+                    Gbenga
+                  </Text>
                 </Stack>
               </MenuButton>
-              <MenuList p="0" m="0" color="black" width="50%">
+              <MenuList py="2" m="0" color="black" width="50%">
                 <MenuItem>
                   <Avatar name="Gbenga Oyeniyi" size="md" m="0" p="0" />
                   <Box
@@ -109,8 +116,14 @@ const NavBar = () => {
                     flexWrap="wrap"
                     justifyContent="flex-start"
                   >
-                    <Text fontSize="md" pl="2" d="block" flex="60%">
-                      Gbenga O.
+                    <Text
+                      fontSize="md"
+                      pl="2"
+                      d="block"
+                      flex="60%"
+                      fontWeight="bold"
+                    >
+                      GBENGA O.
                     </Text>
                     <Button
                       color="blue.300"
@@ -124,8 +137,17 @@ const NavBar = () => {
                   </Box>
                 </MenuItem>
                 <Divider />
-                <MenuItem>
-                  <Text color="red.600">Sign-out </Text>
+                <MenuItem
+                  _hover={{ outline: "none", backgroundColor: "red.50" }}
+                >
+                  <Text
+                    color="red.600"
+                    padding="0.5"
+                    fontSize="sm"
+                    fontWeight="bold"
+                  >
+                    <Icon as={BiLogOut} fontSize="md" /> Sign out
+                  </Text>
                 </MenuItem>
               </MenuList>
             </>
