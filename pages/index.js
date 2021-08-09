@@ -19,6 +19,7 @@ import {
   TableCaption,
   Text,
   calc,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 import { SearchIcon } from "@chakra-ui/icons";
@@ -27,17 +28,20 @@ import NavBar from "../components/Navbar";
 import Queue from "../components/Queue";
 
 export default function Home() {
+  let { isOpen, onToggle } = useDisclosure();
+
   return (
     <Box>
       <NavBar />
 
-      <Flex bg="rgb(247, 248, 248)" height="100vh" display="flex">
+      <Flex bg="rgb(247, 248, 248)" minHeight="100vh" display="flex">
         <Flex
           direction="row"
           flexWrap="wrap"
           justifyContent="flex-start"
           p="14"
           pt="20"
+          width={isOpen ? "calc(100% - 40px)" : "calc(100% - 370px)"}
         >
           <Stack
             bg="white"
@@ -197,7 +201,7 @@ export default function Home() {
           </Flex>
         </Flex>
 
-        <Queue />
+        <Queue isOpen={isOpen} onToggle={onToggle} />
       </Flex>
     </Box>
   );
